@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block style %}
+{{ super() }}
+
+<style>
+  body {
+    background: url('{{ url_for('static', filename='winterupdatewallpaper.jpg') }}')
+  }
+
+</style>
+{% endblock %}
+
+
+{% block content %}
+<div class="text-left vh-100 d-flex">
+  <div class="row d-flex align-self-center flex-fill">
+    <div class="col">
+
+<h1 id="guild-name">Os Bolados</h1>
+<form action="/user/" id="formFind">
+<div class="input-group mb-3">
+  <input type="text" name="character" class="form-control" placeholder="Find player" aria-label="Find player name" aria-describedby="button-addon2">
+  <button class="btn btn-primary" type="submit" value="search" id="button-addon2">Find</button>
+  </div>
+</form>  
+    </div>
+    <div class="col">
+      
+    </div>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="alert alert-primary" role="alert">
+  <i class="bi-info-circle"></i>
+  Experiência de hoje será contabilizada as 00:10h.
+</div>
+
+
+<table class="table table-hover caption-top"
+       data-toggle="table"
+       data-show-columns="true"
+       data-search="true"
+       >
+  <caption>Experiência do mês atual</caption>
+  <thead>
+    <tr>
+      <th data-sortable="true" data-field="player">Player</th>
+      <th data-sortable="true" data-field="exp">EXP</th>
+      <th data-sortable="true" data-field="lvin">Lv. In</th>
+      <th data-sortable="true" data-field="lvout">Lv. Out</th>
+      <th data-sortable="true" data-field="diff">Diff</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {% for player in data %}
+    <tr>
+    {% for p in player %}
+
+    <td>{{ p }}</td>
+
+    {% endfor %}
+    </tr1>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>{{ name|title }}</h2>
+
+
+<!-- Resumo exp -->
+<table class="table table-sm caption-top">
+  <caption>Exp total desde 20/09/2023</caption>
+  <thead class="table-dark">
+    <tr>
+      <th>Exp</th>
+      <th>Lv. In</th>
+      <th>Lv. Out</th>
+      <th>Diff</th>
+    </tr>
+  </thread>
+
+  <tbody>
+    <tr>
+    {% for item in exp_total %}
+    <td>{{ item }}</td>
+    {% endfor %}
+    </tr>
+  </tbody>
+
+</table>
+<!-- end resumo exp -->
+
+
+<!-- Resumo exp mês -->
+<table class="table table-sm caption-top">
+  <caption>Exp total ref mês atual</caption>
+  <thead class="table-dark">
+    <tr>
+      <th>Exp</th>
+      <th>Lv. In</th>
+      <th>Lv. Out</th>
+      <th>Diff</th>
+    </tr>
+  </thread>
+
+  <tbody>
+    <tr>
+    {% for item in exp_month %}
+    <td>{{ item }}</td>
+    {% endfor %}
+    </tr>
+  </tbody>
+
+</table>
+<!-- end resumo exp mês -->
+
+<!-- historico exp por data-->
+
+<table class="table table-hover caption-top"
+       data-toggle="table"
+       data-show-columns="true"
+       data-search="true"
+       data-pagination="true"
+       >
+  <caption>Histórico de exp por data</caption>
+  <thead class="table-dark">
+    <tr>
+      <th data-sortable="true" data-field="date">Date</th>
+      <th data-sortable="true" data-field="level">Level</th>
+      <th data-sortable="true" data-field="exp">EXP</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {% for history in history_exp %}
+    <tr>
+    {% for item in history %}
+
+    <td>{{ item }}</td>
+
+    {% endfor %}
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<!-- end historico exp por data-->
+
+</br>
+
+<!-- mortes -->
+<table class="table table-sm caption-top"
+       data-toggle="table"
+       data-show-columns="true"
+       data-search="true"
+       data-pagination="true">
+  <caption>Mortes</caption>
+  <thead class="table-dark">
+    <tr>
+      <th>Data</th>
+      <th>Level</th>
+      <th>Monsters</th>
+    </tr>
+  </thread>
+
+  <tbody>
+
+    {% for item in deaths %}
+    <tr>
+    {% for death in item %}
+    <td>{{ death }}</td>
+    {% endfor %}
+    </tr>
+    {% endfor %}
+
+  </tbody>
+
+</table>
+<!-- end mortes-->
+{% endblock %}
