@@ -2,18 +2,6 @@
       font-family: Rubik, Arial, Helvetica, sans-serif;
   }
 
-nav li a:link {
-  color: white;
-  background-color: transparent;
-  text-decoration: none;
-}
-
-nav li a:visited {
-  color: white;
-  background-color: transparent;
-  text-decoration: none;
-}
-
 #guild-name {
     color: white;
     font-size: 50px;

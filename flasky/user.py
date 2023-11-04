@@ -17,14 +17,14 @@ def character(character):
 
     db = get_db()
     exp_total = db.execute(f"""
-    select sum(amount), min(level), max(level), max(level)-min(level)
+    select printf("%,d", sum(amount)), min(level), max(level), max(level)-min(level)
     from experience
     inner join player on experience.player = player.id
     where name='{character}' COLLATE NOCASE
     """).fetchone()
 
     exp_month = db.execute(f"""
-    select sum(amount), min(level), max(level), max(level)-min(level)
+    select printf("%,d", sum(amount)), min(level), max(level), max(level)-min(level)
     from experience
     inner join player on experience.player = player.id
     where name='{character}' COLLATE NOCASE and
@@ -35,7 +35,7 @@ def character(character):
     history_exp = db.execute(f"""
     select STRFTIME('%d/%m/%Y, %H:%M', date), level, amount from Experience
     inner join Player on Experience.player = Player.id
-    where name='{character}' COLLATE NOCASE order by level desc;
+    where name='{character}' COLLATE NOCASE order by date desc;
     """)
 
     deaths = db.execute(f"""

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<table class="table table-sm caption-top">
+  <caption>Criaturas e Bosses Boosted</caption>
+  <thead class="table-dark">
+    <tr>
+      <th>Date</th>
+      <th>Name</th>
+    </tr>
+  </thread>
+
+  <tbody>
+    {% for creature in creatures %}    
+    <tr>
+        
+    {% for item in creature %}
+    <td>{{ item }}</td>
+    {% endfor %}
+    
+    </tr>
+    {% endfor %}
+  </tbody>
+
+</table>
+
+{% endblock %}
