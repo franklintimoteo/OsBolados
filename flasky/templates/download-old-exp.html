@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Arquivos exp geral separados por mês. Gerados no primeiro dia do mês às 01:00</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for file in files %}
+    <tr>
+      <th scope="row">{{ loop.index }}</th>
+      <td><a href="{{ url_for('static', filename='downloads-old-exp/'+file) }}">{{ file }}</a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

@@ -24,9 +24,10 @@ def create_app(config=None):
     from . import db
     db.init_app(app)
 
-    from . import user, home
+    from . import user, home, boosted
     app.register_blueprint(user.bp)
     app.register_blueprint(home.bp)
+    app.register_blueprint(boosted.bp)
 
     @app.route('/hello')
     def hello():
