@@ -8,7 +8,7 @@ def boosted_history():
     db = get_db()
 
     creatures_boosted = db.execute("""
-    select STRFTIME('%d/%m/%Y, %H:%M', date), name from boostedcreature
+    select STRFTIME('%d/%m/%Y', date), name from boostedcreature
     order by date desc;
     """)
 
