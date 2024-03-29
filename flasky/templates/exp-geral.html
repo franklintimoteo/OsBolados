@@ -12,12 +12,15 @@
 <table class="table table-hover caption-top"
        data-toggle="table"
        data-show-columns="true"
+       data-custom-sort="customSort"
+       data-show-export="true"
        data-search="true"
+       data-show-columns-toggle-all="true"
        >
   <caption>Experiência do mês atual</caption>
   <thead>
     <tr>
-      <th data-sortable="true" data-field="player">Player</th>
+      <th data-sortable="false" data-field="player">Player</th>
       <th data-sortable="true" data-field="exp">EXP</th>
       <th data-sortable="true" data-field="lvin">Lv. In</th>
       <th data-sortable="true" data-field="lvout">Lv. Out</th>
@@ -29,13 +32,35 @@
     {% for player in data %}
     <tr>
     {% for p in player %}
-
+    {% if loop.index == 1 %}
+    <td><a href="{{ url_for("user.character", character=p) }}">{{ p }}</a></td>
+    {% else %}
     <td>{{ p }}</td>
+    {% endif %}
+
+    
 
     {% endfor %}
     </tr1>
     {% endfor %}
   </tbody>
 </table>
+
+<script>
+  function customSort(sortName, sortOrder, data) {
+    var order = sortOrder === 'desc' ? -1 : 1
+    data.sort(function (a, b) {
+      var aa = +((a[sortName] + '').replace(/[^\d]/g, ''))
+      var bb = +((b[sortName] + '').replace(/[^\d]/g, ''))
+      if (aa < bb) {
+        return order * -1
+      }
+      if (aa > bb) {
+        return order
+      }
+      return 0
+    })
+  }
+</script>
 
 {% endblock %}
