@@ -11,7 +11,7 @@ def boosted_history():
     creatures_boosted = db.execute("""
     select STRFTIME('%d/%m/%Y', date), GROUP_CONCAT(name) from boostedcreature
     group by date
-    order by date desc limit 30;
+    order by date,isBoss desc limit 30;
     """)
 
     creatures_boosted = [(date, *monster.split(',')) for date, monster in creatures_boosted]

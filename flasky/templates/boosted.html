@@ -2,33 +2,33 @@
 
 {% block content %}
 
-<div class="container mt-5">
-  <div class="row justify-content-md-center">
+<div class="container-sm mt-5">
+  <div class="row justify-content-md-center text-center">
 
     <!-- Boosted creature -->
-    <div class="card text-dark bg-light border-info m-2 shadow-sm" style="max-width: 10rem;">
-      <div class="card-body">
-	<h6 class="card-title">Boosted Creature</h6>
-	<img src="{{ bosses.boostedcreature.image }}" alt="...">
-	<p>{{ bosses.boostedcreature.name }}</p>
+    <div class="border rounded text-dark bg-light border-info m-2 p-2 shadow-sm col col-xs" style="max-width: 10rem;">
+      <div class="">
+	<h6 class="d-none d-sm-block">Boosted Creature</h6>
+	<img class="img-fluid" src="{{ bosses.boostedcreature.image }}" alt="...">
+	<p class="d-none d-sm-block">{{ bosses.boostedcreature.name }}</p>
       </div>
     </div>
     
     <!-- Boosted boss -->
-    <div class="card text-dark bg-light border-danger shadow" style="max-width: 10rem;">
-      <div class="card-body">
-	<h6 class="card-title">Boosted Boss</h6>
-	<img src="{{ bosses.boostedboss.image }}" alt="...">
-	<p>{{ bosses.boostedboss.name }}</p>
+    <div class="border rounded text-dark bg-light border-danger m-2 p-2 shadow-lg col col-xs" style="max-width: 10rem;">
+      <div class="">
+	<h6 class="d-none d-sm-block">Boosted Boss</h6>
+	<img class="img-fluid" src="{{ bosses.boostedboss.image }}" alt="...">
+	<p class="d-none d-sm-block">{{ bosses.boostedboss.name }}</p>
       </div>
     </div>
 
     <!-- Boosted dream court -->
-   <div class="card text-dark bg-light border-info m-2 shadow-sm" style="max-width: 10rem;">
-      <div class="card-body">
-	<h6 class="card-title">Dream Courts</h6>
-	<img src="{{ bosses.dreamcourt.image }}" alt="...">
-	<p>{{ bosses.dreamcourt.name }}</p>
+    <div class="border rounded text-dark bg-light border-info m-2 p-2 shadow-sm col col-xs" style="max-width: 10rem;">
+      <div class="">
+	<h6 class="d-none d-sm-block">Dream Courts</h6>
+	<img class="img-fluid" src="{{ bosses.dreamcourt.image }}" alt="...">
+	<p class="d-none d-sm-block">{{ bosses.dreamcourt.name }}</p>
       </div>
     </div>
 
