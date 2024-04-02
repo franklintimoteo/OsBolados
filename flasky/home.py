@@ -20,7 +20,7 @@ def exp_geral():
 #    """)
     if date.today().day == 1 : 
         results = db.execute("""
-        select name, REPLACE(printf("%,d", sum(amount)), ',', '.'), min(level), max(level), max(level)-min(level)
+        select outfit, name, REPLACE(printf("%,d", sum(amount)), ',', '.'), min(level), max(level), max(level)-min(level)
         from Experience
         inner join player on experience.player = player.id
         where date >= date('now', 'start of month', '-1 month')
@@ -29,7 +29,7 @@ def exp_geral():
         """)
     else:
         results = db.execute("""
-        select name, REPLACE(printf("%,d", sum(amount)), ',', '.'), min(level), max(level), max(level)-min(level)
+        select outfit, name, REPLACE(printf("%,d", sum(amount)), ',', '.'), min(level), max(level), max(level)-min(level)
         from Experience
         inner join player on experience.player = player.id
         where date >= date('now', 'start of month')

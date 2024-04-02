@@ -16,6 +16,10 @@ def character(character):
     character = escape(character)
 
     db = get_db()
+    outfit = db.execute(f"""select outfit from player where name='{character}' COLLATE NOCASE""").fetchone()
+    outfit = outfit[0]
+    player_id = db.execute(f"""select id from player where name='{character}'""").fetchone()
+
     exp_total = db.execute(f"""
     select printf("%,d", sum(amount)), min(level), max(level), max(level)-min(level)
     from experience
@@ -33,7 +37,7 @@ def character(character):
     """).fetchone()
 
     history_exp = db.execute(f"""
-    select STRFTIME('%d/%m/%Y, %H:%M', date), level, amount from Experience
+    select STRFTIME('%d/%m/%Y', date), level, amount from Experience
     inner join Player on Experience.player = Player.id
     where name='{character}' COLLATE NOCASE order by date desc;
     """)
@@ -49,9 +53,33 @@ def character(character):
     order by death.level desc
     """)
 
+    achievements_obtained = db.execute(f"""
+    select points, name, description, link from Achievement_Player as A
+    inner join Achievement on Achievement.id = A.achievement
+    where player='{player_id[0]}';""")
+
+    
+    achievements_pendent = db.execute(f"""
+    select points, name, description,link from Achievement as A
+    left join Achievement_Player as B on A.id = B.achievement
+    and player={player_id[0]}
+    where B.achievement is null
+    """)
+    
+    total_achievements = db.execute(f"""
+    select sum(points) from Achievement_Player as A
+    inner join Achievement on Achievement.id = A.achievement
+    where player={player_id[0]};    
+    """).fetchone()[0]
+
+    
     return render_template('user.html',
+                           outfit=outfit,
                            name=character,
                            exp_total=exp_total,
                            exp_month=exp_month,
                            history_exp=history_exp,
-                           deaths=deaths)
+                           deaths=deaths,
+                           achievob=achievements_obtained,
+                           achievpd=achievements_pendent,
+                           achievtotal=total_achievements)

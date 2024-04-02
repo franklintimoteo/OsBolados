@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<h2>{{ name|title }}</h2>
+<h2><img src="{{ outfit }}">{{ name|title }}</h2>
 
 
 <!-- Resumo exp -->
@@ -114,4 +114,57 @@
 
 </table>
 <!-- end mortes-->
+
+
+<!-- Achievements -->
+<table class="table table-sm caption-top"
+       data-toggle="table"
+       data-show-columns="true"
+       data-search="true"
+       
+  <caption>Achievements {{ achievtotal }}</caption>
+  <thead class="table-dark">
+    <tr>
+      <th>Points</th>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thread>
+
+  <tbody>
+
+    {% for achi in achievpd %}
+    <tr>
+      <td>{{ achi.points }}</td>
+      
+      <td class="text-danger"> {{ achi.name }}</td>
+      {% if achi.link %}
+      <td><a href="{{ achi.link }}"> {{ achi.description }} <a/></td>
+      {% else %}
+      <td>{{ achi.description }}</td>
+      {% endif %}
+      
+    </tr>
+    {% endfor %}
+    
+    {% for achi in achievob %}
+    <tr>
+      <td>{{ achi.points }}</td>
+      
+      <td class="text-success"> {{ achi.name }}</td>
+      {% if achi.link %}
+      <td><a href="{{ achi.link }}"> {{ achi.description }} <a/></td>
+      {% else %}
+      <td>{{ achi.description }}</td>
+      {% endif %}
+     {% endfor %}
+
+
+    
+  </tbody>
+
+</table>
+
+<!-- end achievements -->
+
 {% endblock %}
