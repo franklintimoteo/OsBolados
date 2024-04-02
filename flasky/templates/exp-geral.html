@@ -30,17 +30,12 @@
   <tbody>
     {% for player in data %}
     <tr>
-    {% for p in player %}
-    {% if loop.index == 1 %}
-    <td><a href="{{ url_for("user.character", character=p) }}">{{ p }}</a><a href="https://san.taleon.online/characterprofile.php?name={{ p }}" style="margin-left:10px"></a></td>
-    {% else %}
-    <td>{{ p }}</td>
-    {% endif %}
-
-    
-
-    {% endfor %}
-    </tr1>
+      <td><img src="{{ player[0] }}" style="width: 30px;"><a href="{{ url_for("user.character", character=player[1]) }}">{{ player[1] }}</a><a href="https://san.taleon.online/characterprofile.php?name={{ player[1] }}" style="margin-left:10px"></a></td> 
+      <td>{{ player[2] }}</td>
+      <td>{{ player[3] }}</td>
+      <td>{{ player[4] }}</td>
+      <td>{{ player[5] }}</td>
+    </tr>
     {% endfor %}
   </tbody>
 </table>
