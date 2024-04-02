@@ -4,7 +4,32 @@
 
 #guild-name {
     color: white;
-    font-size: 50px;
     text-shadow: rgba(0, 0, 0, 0.8) 3px 4px 5px;
-    font-weight: 700;
+}
+
+.animate-charcter
+{
+  background-image: linear-gradient(
+    -225deg,
+    #ffba08 0%,
+    #f48c06 29%,
+    #d00000 67%,
+    #370617 100%
+  );
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 2s linear infinite;
+  display: inline-block;
+  }
+
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
 }
