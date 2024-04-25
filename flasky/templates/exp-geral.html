@@ -30,7 +30,7 @@
   <tbody>
     {% for player in data %}
     <tr>
-      <td><img src="{{ player[0] }}" style="width: 30px;"><a href="{{ url_for("user.character", character=player[1]) }}">{{ player[1] }}</a><a href="https://san.taleon.online/characterprofile.php?name={{ player[1] }}" style="margin-left:10px"></a></td> 
+      <td><img src="{{ player[0] }}" style="width: 30px;"><a href="{{ url_for("user.character", character=player[1]) }}">{{ player[1] }}</a><a href="https://san.taleon.online/characterprofile.php?name={{ player[1] }}" style="margin-left:10px">↗</a></td> 
       <td>{{ player[2] }}</td>
       <td>{{ player[3] }}</td>
       <td>{{ player[4] }}</td>
