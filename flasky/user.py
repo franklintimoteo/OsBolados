@@ -8,6 +8,7 @@ bp = Blueprint('user', __name__, url_prefix='/user')
 def character_arg():
     character = request.args.get('character')
     if character:
+        character = character.title()
         return redirect(f'/user/{character}')
     abort(404)
 
