@@ -8,12 +8,9 @@ RUN --mount=type=cache,target=/root/.cache/pip \
 
 COPY . /osbolados
 
-ENTRYPOINT ["waitress-serve", "--port", "20009", "--url-scheme", "'https'", "--call", "flasky:create_app"]
+ENTRYPOINT ["waitress-serve", "--port", "20009", "--url-scheme", "https", "--call", "flasky:create_app"]
 VOLUME ["/DATA/configs/lastdeathbot/deaths-database.sqlite:/osbolados/deaths-database.sqlite"]
 
 FROM builder AS installer
 
-RUN <<EOF
-apk update
-apk add --no-cache sqlite
-EOF
+RUN apk update && apk add --no-cache sqlite
