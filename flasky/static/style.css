@@ -33,3 +33,37 @@
     background-position: 200% center;
   }
 }
+
+/* Link flutuante para o site do Tsurugi */
+.floating-link {
+  position: fixed; /* Fixa o link no canto da tela */
+  bottom: 10px; /* Distância da borda inferior */
+  right: 10px; /* Distância da borda direita */
+  z-index: 1000; /* Garante que esteja acima de outros elementos */
+  display: flex; /* Permite alinhar imagem e texto lado a lado */
+  align-items: center; /* Alinha verticalmente a imagem e o texto */
+  background-color: #ffffff; /* Fundo branco ou outro de sua escolha */
+  padding: 10px 15px; /* Espaçamento interno para estética */
+  border-radius: 8px; /* Bordas arredondadas */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
+  text-decoration: none; /* Remove o sublinhado */
+  color: #333; /* Cor do texto */
+  font-family: Arial, sans-serif; /* Fonte do texto */
+  font-size: 14px; /* Tamanho do texto */
+  transition: transform 0.2s ease, background-color 0.2s ease; /* Animação suave */
+}
+
+.floating-link:hover {
+  transform: scale(1.05); /* Aumenta ligeiramente no hover */
+  background-color: #f0f0f0; /* Altera a cor de fundo no hover */
+}
+
+.floating-link .icon {
+  width: 24px; /* Largura da imagem */
+  height: 24px; /* Altura da imagem */
+  margin-right: 10px; /* Espaçamento entre a imagem e o texto */
+}
+
+.floating-link .text {
+  font-weight: bold; /* Texto em negrito */
+}
