@@ -24,13 +24,10 @@ def create_app(config=None):
     from . import db
     db.init_app(app)
 
-    from . import user, home, boosted
+    from . import user, home, boosted, gallery
     app.register_blueprint(user.bp)
     app.register_blueprint(home.bp)
     app.register_blueprint(boosted.bp)
-
-    @app.route('/hello')
-    def hello():
-        return 'Hello, Os Bolados!'
+    app.register_blueprint(gallery.bp)
 
     return app

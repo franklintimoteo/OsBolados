@@ -9,7 +9,7 @@ RUN --mount=type=cache,target=/root/.cache/pip \
 COPY . /osbolados
 
 ENTRYPOINT ["waitress-serve", "--port", "20009", "--url-scheme", "https", "--call", "flasky:create_app"]
-VOLUME ["/DATA/configs/lastdeathbot/deaths-database.sqlite:/osbolados/deaths-database.sqlite"]
+VOLUME ["/DATA/configs/lastdeathbot/deaths-database.sqlite:/osbolados/deaths-database.sqlite", "/GALLERY:/osbolados/flasky/static/GALLERY"]
 
 FROM builder AS installer
 
